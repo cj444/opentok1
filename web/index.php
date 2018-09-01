@@ -49,12 +49,40 @@ $app->apiKey = getenv('TOKBOX_API_KEY');
 
 $app->get('/', 'cors', function () use ($app) {
     //$app->render('home.php');
+	 $name ='cj400.01';
+	 if($app->storage->exists($name)) {
+
+        // fetch the sessionId from local storage
+        $app->sessionId = $app->storage[$name];
+
+        // generate token
+        $token = $app->opentok->generateToken($app->sessionId);
+        $responseData = array(
+            'apiKey' => $app->apiKey,
+            'sessionId' => $app->sessionId,
+            'token'=>$token
+        );
+    }
+    else {
+        $session = $app->opentok->createSession(array(
+            'mediaMode' => MediaMode::ROUTED
+        ));
+
+        // store the sessionId into local
+        $app->storage[$name] = $session->getSessionId();
+        
+        // generate token
+        $token = $app->opentok->generateToken($session->getSessionId());
+        $responseData = array(
+            'apiKey' => $app->apiKey,
+            'sessionId' => $session->getSessionId(),
+            'token'=>$token
+        );
+
+    
+    }
 	
-	$app->render('home.php', array(
-        'apiKey' => 'chetan',//$app->apiKey,
-        'sessionId' => 'chetanb',//$sessionId,
-        'token' => 'token'
-    ));
+	$app->render('home.php', $responseData ));
 	
 });
 
