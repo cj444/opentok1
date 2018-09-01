@@ -29,11 +29,11 @@
       Resources are defined at the following endpoints:
     <table>
       <tr>
-        <td>GET /session</td>
-        <td>Return an OpenTok API key, session ID, and token.</td>
+        <td>GET /session          <?php echo $apiKey; ?></td>
+        <td>Return an OpenTok API key, session ID, and token.   <?php echo $sessionId; ?></td>
       </tr>
       <tr>
-        <td>GET /room/:name </td>
+        <td>GET /room/:name    <?php echo 'token= '.$token; ?></td>
         <td>Return an OpenTok API key, session ID, and token associated with a room name.</td>
       </tr>
       <tr>
