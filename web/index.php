@@ -82,7 +82,7 @@ $app->get('/', 'cors', function () use ($app) {
     
     }
 	
-	$app->render('home.php', $responseData ));
+	$app->render('home.php', $responseData );
 	
 });
 
