@@ -160,7 +160,7 @@ $app->get('/archive', 'cors', function() use ($app) {
     echo json_encode($result);
 });
 
-$app->get('/test_1', function () use ($app) {
+$app->get('/test_1', 'cors', function() use ($app) {
 
     // If a sessionId has already been created, retrieve it from the cache
          $sessionId = $app->storage[$name];
