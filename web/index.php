@@ -159,22 +159,22 @@ $app->get('/archive', 'cors', function() use ($app) {
     }
     echo json_encode($result);
 });
-
+/* not working */
 $app->get('/test_1', 'cors', function() use ($app) {
-
+ $app->render('home.php');
     // If a sessionId has already been created, retrieve it from the cache
-         $sessionId = $app->storage[$name];
+         //$sessionId = $app->storage[$name];
 
     // Generate a fresh token for this client
-    $token = $app->opentok->generateToken($sessionId);
+    //$token = $app->opentok->generateToken($sessionId);
 
-    $app->render('helloworld.php', array(
+   /*  $app->render('helloworld.php', array(
         'apiKey' => $app->apiKey,
         'sessionId' => $sessionId,
         'token' => $token
-    ));
+    )); */
 });
-
+/* not w */
 
 // Enable CORS functionality
 function cors() {
