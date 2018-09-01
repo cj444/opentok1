@@ -20,20 +20,24 @@
 </style>
 
 <body>
+  <p> getting api and session and token with creating default channel named () </p>
     <p>
-      This is a sample web service for use with OpenTok. See the OpenTok
-      <a href="https://github.com/opentok/learning-opentok-php">
-      learning-opentok-php</a> repo on GitHub.
+      <table>
+      <tr>
+        <td>ApiKey  <?php echo $apiKey; ?></td>
+        <td>session ID, and token.   <?php echo $sessionId; ?>  <?php echo ' and '.$token; ?></td>
+      </tr>
+      </table>
     </p>
     <p>
       Resources are defined at the following endpoints:
     <table>
       <tr>
-        <td>GET /session          <?php echo $apiKey; ?></td>
-        <td>Return an OpenTok API key, session ID, and token.   <?php echo $sessionId; ?></td>
+        <td>GET /session </td>
+        <td>Return an OpenTok API key, session ID, and token.</td>
       </tr>
       <tr>
-        <td>GET /room/:name    <?php echo 'token= '.$token; ?></td>
+        <td>GET /room/:name</td>
         <td>Return an OpenTok API key, session ID, and token associated with a room name.</td>
       </tr>
       <tr>
