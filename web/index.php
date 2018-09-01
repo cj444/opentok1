@@ -48,7 +48,14 @@ $app->container->singleton('opentok', function () {
 $app->apiKey = getenv('TOKBOX_API_KEY');
 
 $app->get('/', 'cors', function () use ($app) {
-    $app->render('home.php');
+    //$app->render('home.php');
+	
+	$app->render('home.php', array(
+        'apiKey' => 'chetan',//$app->apiKey,
+        'sessionId' => 'chetanb',//$sessionId,
+        'token' => 'token'
+    ));
+	
 });
 
 /**
